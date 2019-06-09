@@ -1,0 +1,1 @@
+void binary_file_test();

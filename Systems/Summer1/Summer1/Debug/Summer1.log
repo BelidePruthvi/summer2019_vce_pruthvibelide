@@ -1,0 +1,13 @@
+﻿Build started 5/26/2019 8:16:18 AM.
+     1>Project "C:\Users\welcome\Documents\Visual Studio 2013\Projects\Summer1\Summer1\Summer1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt 3colorsort.cpp reversekelements.cpp
+         reversekelements.cpp
+         3colorsort.cpp
+     1>c:\users\welcome\documents\visual studio 2013\projects\summer1\summer1\3colorsort.cpp(37): error C3861: 'reverseK': identifier not found
+         Generating Code...
+     1>Done Building Project "C:\Users\welcome\Documents\Visual Studio 2013\Projects\Summer1\Summer1\Summer1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.35

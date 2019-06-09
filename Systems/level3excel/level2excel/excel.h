@@ -1,0 +1,11 @@
+void get(int arr[10][10], int row, int col);
+void set(int arr[10][10], int row, int col, char *expression);
+int precedence(char ch);
+void push(char symbol[100], int numbers[100], int *top_symbol, int *top_numbers, char oper);
+int evaluate_expression(char expr[100], struct cell arr[10][10]);
+int check_cycle(char *expression, struct cell arr[10][10]);
+void export1(char *filename, int arr[10][10]);
+int import1(char *filename, int arr[10][10]);
+void print(int arr[10][10]);
+int evalate(char *expr, struct cell arr[10][10]);
+void basic_inputs();
