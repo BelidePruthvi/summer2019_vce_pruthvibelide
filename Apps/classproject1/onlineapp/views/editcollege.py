@@ -20,6 +20,7 @@ class AddCollegeView(PermissionRequiredMixin,LoginRequiredMixin,View):
         return render(request, 'addcollege.html', {'form': form})
 
     def post(self,request,*args,**kwargs):
+
         # if resolve(request.path_info).url_name == "delete_college":
         #     College.objects.get(**kwargs).delete()
         #     return redirect("printcolleges")
