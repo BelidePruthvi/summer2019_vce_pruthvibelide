@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'onlineapp/css/bulma.css' %}">
+</head>
+<body>
+{% if 'onlineapp.add_college' in permissions %}
+<a class="button" href="{% url 'add_college' %}">Add College</a>
+{% endif %}
+<table class="table" border="1">
+    <tr>
+        <th>Name</th>
+        <th>Acronym</th>
+         {% if 'onlineapp.change_college' in permissions and 'onlineapp.delete_college' in permissions %}
+        <th>Actions</th>
+        {% endif %}
+    </tr>
+    {% for college in colleges %}
+    <tr>
+         <td><a href="{% url 'students' college.id %}">{{college.name}}</a></td>
+        <td>{{college.acronym}}</td>
+        {% if 'onlineapp.change_college' in permissions and 'onlineapp.delete_college' in permissions %}
+        <td><a href="{% url 'edit_college' college.id %}">Edit</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'delete_college' college.id %}">Delete</a></td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

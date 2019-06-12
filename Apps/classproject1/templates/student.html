@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'onlineapp/css/bulma.css' %}">
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if 'onlineapp.add_student' in permissions %}
+<a class="button" href="{% url 'add_student' college  %}">Add Student</a>
+{% endif %}
+<table class="table" border="1">
+    <tr>
+        <th>Name</th>
+        <th>College</th>
+        <th>MockTest</th>
+        {% if 'onlineapp.change_student' in permissions and 'onlineapp.delete_student' in permissions %}
+        <th>Actions</th>
+        {% endif %}
+    </tr>
+    {% for student in s %}
+    <tr>
+        <td class="has-text-centered">{{student.name}}</td>
+        <td class="has-text-centered">{{student.college__name}}</td>
+        <td  class="has-text-centered">{{student.mocktest1__total}}</td>
+        {% if 'onlineapp.change_student' in permissions and 'onlineapp.delete_student' in permissions %}
+        <td class="has-text-centered">
+                <span class="button is-text" onclick="window.location='{% url 'edit_student' student.id %}'" style="display:inline-block">
+                    Edit
+                </span>
+                <span style="display:inline-block" class="button is-text">|</span>
+                <form style="display:inline-block" method="post" action="{% url 'del_student' student.id %}">
+                    {% csrf_token %}
+                    <input style="display:inline-block" class="button is-text" type="submit" value="Delete">
+                </form>
+            </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
