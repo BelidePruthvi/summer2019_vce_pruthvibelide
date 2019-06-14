@@ -17,13 +17,12 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
 from django.conf.urls import include, url
-from onlineapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('hello/',views.helloworld),
     path('', include('onlineapp.urls')),
-    url(r'^api-auth/', include('rest_framework.urls'))
+    url(r'^api-auth/', include('rest_framework.urls')),
     #path('', include('onlineapp.urls')),
 ]
 if settings.DEBUG:

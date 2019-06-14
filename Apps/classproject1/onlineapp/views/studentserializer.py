@@ -1,12 +1,15 @@
-from rest_framework.decorators import api_view
 from onlineapp.models import *
 from rest_framework.response import Response
 from onlineapp.serializer import CollegeSerializer,StudentDetailsSerializer,MockTest1Serializer,StudentSerializer
 from rest_framework import status
 from rest_framework.views import APIView
 from django.http import JsonResponse
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication,TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 class StudentApiView(APIView):
+    authentication_classes = (SessionAuthentication, BasicAuthentication,TokenAuthentication)
+    permission_classes = (IsAuthenticated,)
     def get(self, request, **kwargs):
         college = College.objects.get(id=kwargs["cid"])
         if 'id' in kwargs:

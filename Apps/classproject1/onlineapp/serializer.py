@@ -9,13 +9,12 @@ class CollegeSerializer(serializers.ModelSerializer):
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ('id', 'name', 'email',  'db_folder', 'dropped_out') #, 'college')
-
+        fields = ('id', 'name', 'email',  'db_folder', 'dropped_out')
 
 class MockTest1Serializer(serializers.ModelSerializer):
     class Meta:
         model = MockTest1
-        fields = ('problem1', 'problem2', 'problem3', 'problem4', 'total') #, 'student')
+        fields = ('problem1', 'problem2', 'problem3', 'problem4', 'total')
 
 
 class StudentDetailsSerializer(serializers.ModelSerializer):

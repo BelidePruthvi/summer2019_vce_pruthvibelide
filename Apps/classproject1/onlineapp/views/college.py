@@ -2,6 +2,7 @@ from django.views import View
 from onlineapp.models import *
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 
 class CollegeView(LoginRequiredMixin,View):
     login_url = 'login'
@@ -13,6 +14,11 @@ class CollegeView(LoginRequiredMixin,View):
         print(request.user.get_all_permissions())
         colleges=College.objects.all()
         return render(request,"printcolleges.html",{'colleges':colleges,'permissions':request.user.get_all_permissions()})
+
+class TestView(View):
+    def get(self,request,*args,**kwargs):
+        return HttpResponse("hello world")
+
 
 
 
